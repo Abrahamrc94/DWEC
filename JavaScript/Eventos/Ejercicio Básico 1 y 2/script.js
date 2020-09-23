@@ -21,6 +21,11 @@ texto.addEventListener( "keydown", () => {
     console.log("Has pulsado una tecla!");
 });
 
+//Para saber en concreto que tecla se ha pulsado
+texto.addEventListener( "keydown", (event) => {
+    console.log("La tecla " + event.key);
+});
+
 texto.addEventListener( "keyup", () => {
     console.log("Has soltado una tecla!");
 });
