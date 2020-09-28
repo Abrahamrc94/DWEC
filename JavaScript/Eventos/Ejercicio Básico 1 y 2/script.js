@@ -17,6 +17,7 @@ caja.addEventListener( "mouseup", () => {
     console.log("Has soltado el botón izquierdo dentro de la caja!");
 });
 
+//Ejercicio 2
 texto.addEventListener( "keydown", () => {
     console.log("Has pulsado una tecla!");
 });
