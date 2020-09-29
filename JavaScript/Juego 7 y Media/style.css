@@ -2,97 +2,63 @@ body{
     background-image: url("./imagenes/imagenes/Fondo.jpg");
 }
 
-.game{
-    color: aliceblue;
-    float: center;
-}
-
-.tablero{
-    margin-left: 35px;
-    margin-top: 15px;
-    height: 480px;
-    width: 1009px;
-}
-
-.jugador{
-    float: left;
-    margin-left: 200px;
-}
-
-.maquina{
+#datosJugador button{
+    margin-right: 50%;
     float: right;
-    margin-right: 275px;
 }
 
-#winner{
-    margin-left: 170px;
-    text-decoration-line: underline;
-    float: center;
+#cartas td{
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+    vertical-align: 0%;
 }
 
-#button{
+.cartaAbajo{
     float: left;
-    margin-left: 50px;
 }
 
-.img{
-    width: 800px;
-    height: 500px;
-    top: 100px;
-    left: 22%;
-    position: absolute;
-    border-radius: 10%;
-    z-index: -1;
+.cartaArriba{
+    padding-top: 10%;
+    padding-right: 10%;
+    float: right;
 }
 
-.cartaJugador{
-    height: 400px;
-    width: 400px;
-    margin-left: 650px;
-    margin-top: 100px;
+.cartaArriba img{
+    width: 200px;
+    height: auto;
 }
 
-.img2{
-    width: 50%;
-    margin-left: -350px;
-    z-index: 1;
+.arraycartas{
+    clear: both;
 }
 
-.img2-1{
-    width: 30%;
-    margin-left: 10px;
-    z-index: 1;
+.arrayCartas img{
+    padding-top: 5%;
+    padding-left: 2%;
+    margin-bottom: -25%;
+    width: 100px;
+    height: auto;
 }
 
-#carta{
-    margin-left: -350px;
+#ganador{
+    color: red;
+    font-size: 24px;
 }
 
-.cartaMaquina{
-    height: 400px;
-    width: 400px;
-    margin-left: 300px;
-    margin-top: -402px;
+#puntosJugador, #puntosBanca{
+    color: blue;
+    font-size: 24px;
 }
 
-.img3{
-    width: 50%;
-    z-index: 1;
-    margin-left: 475px;
+button{
+    size: 20px;
 }
 
-.img3-1{
-    width: 30%;
-    margin-left: 415px;
-    margin-top: -320px;
-    margin-bottom: 20px;
-    z-index: 1;
-}
-
-#cartitaMaquina{
-    margin-left: 415px;
-}
-
-#reiniciar{
-    margin-left: 45em;
+#botonPlantar, #reiniciar{
+    background-color: #4CAF50;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
 }
