@@ -66,7 +66,11 @@ pedircarta.addEventListener('click', () => {
             arraycombinaciones.push(numero+tipo);
 
             //Llamamos a una función que bloquea el juego si el jugador sobrepasa de 7.5 o si llega a 7.5.
-            jugadorAcabaTurno();
+            if(totaljugador==7.5){
+                jugadorAcabaTurno();
+            }else if(totaljugador>7.5){
+                jugadorPierde();
+            }
         }
     }  
 });
@@ -115,26 +119,23 @@ botonPlantar.addEventListener('click', () => {
     
 });
 
-//Función que es llamada para que si el jugador sobrepasa de 7.5 pierda automáticamente o si lo iguala se acabe su turno,
+//Función que es llamada para que si el jugador iguala 7.5 se acabe su turno,
 //iniciando así el turno de la banca.
-// Y además cambie el dorso de la carta para que no salga que pida carta.
 const jugadorAcabaTurno = () => {
-    
-    if(totaljugador > 7.5){
+        botonPlantar.click();
+        document.getElementById("botonPlantar").disabled = true;
+    }
+ 
+//Función que es llamada para que si el jugador pasa de 7.5 pierda automaticamente    
+const jugadorPierde = () =>{
+  
         document.getElementById("pedirCartaJugador").src = "./imagenes/imagenes/trasera.jpg";
         document.getElementById("botonPlantar").disabled = true;
         ganador();
-    }else if(totaljugador==7.5){
-        document.getElementById("pedirCartaJugador").src = "./imagenes/imagenes/trasera.jpg";
-        botonPlantar.click();
-        document.getElementById("botonPlantar").disabled = true;
-        
-    }
-    
-
 }
 
-//Evento para reiniciar la página, que lo que hace es refrescar la página.
+
+//Evento para reiniciar el juego
 let refresh = document.getElementById("reiniciar");
 refresh.addEventListener("click", () => {
     window.location.reload();
