@@ -65,8 +65,8 @@ pedircarta.addEventListener('click', () => {
             //Añadimos al array de combinaciones la que acaba de salir.
             arraycombinaciones.push(numero+tipo);
 
-            //Llamamos a una función que bloquea el juego si el jugador sobrepasa de 7.5.
-            jugadorhaperdido();
+            //Llamamos a una función que bloquea el juego si el jugador sobrepasa de 7.5 o si llega a 7.5.
+            jugadorAcabaTurno();
         }
     }  
 });
@@ -115,14 +115,20 @@ botonPlantar.addEventListener('click', () => {
     
 });
 
-//Función que es llamada solo cuando el jugador sobrepasa de 7.5 que pierda automáticamente.
-// y además cambie el dorso de la carta para que no salga que pida carta.
-const jugadorhaperdido = () => {
+//Función que es llamada para que si el jugador sobrepasa de 7.5 pierda automáticamente o si lo iguala se acabe su turno,
+//iniciando así el turno de la banca.
+// Y además cambie el dorso de la carta para que no salga que pida carta.
+const jugadorAcabaTurno = () => {
     
     if(totaljugador > 7.5){
         document.getElementById("pedirCartaJugador").src = "./imagenes/imagenes/trasera.jpg";
         document.getElementById("botonPlantar").disabled = true;
         ganador();
+    }else if(totaljugador==7.5){
+        document.getElementById("pedirCartaJugador").src = "./imagenes/imagenes/trasera.jpg";
+        botonPlantar.click();
+        document.getElementById("botonPlantar").disabled = true;
+        
     }
     
 
