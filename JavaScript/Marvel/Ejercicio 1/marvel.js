@@ -1,6 +1,5 @@
 const button = document.getElementById("submit");
 const select = document.getElementById("select");
-let miLista = document.getElementById('table');
 let datos = document.getElementById("datos");
 
 
@@ -11,7 +10,7 @@ button.addEventListener('click', (e) =>{
 
 
 //BUSCAMOS EN EL ARCHIVO MARVEL.PHP
-fetch('http://192.168.33.10/Marvel/marvel.php')
+fetch('http://192.168.33.10/Marvel/Ejercicio%201/marvel.php')
 .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
 .then(res => res.json())
 .then(res => {
@@ -29,8 +28,8 @@ fetch('http://192.168.33.10/Marvel/marvel.php')
 //CREAMOS FUNCION PARA RECUPERAR DATOS DE LA BBDD
 const getData = (id) => {
             //BUSCAMOS POR ID
-            let datos = document.getElementById("datos");
-            fetch(`http://192.168.33.10/Marvel/marvel.php?id=${id}`)
+            datos = document.getElementById("datos");
+            fetch(`http://192.168.33.10/Marvel/Ejercicio%201/marvel.php?id=${id}`)
             .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
             .then(res => res.json())
             .then(res => {

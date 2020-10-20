@@ -1,53 +1,44 @@
-const button = document.getElementById("submitFilter");
-const select = document.getElementById("select");
-let miLista = document.getElementById('table');
-let datos = document.getElementById("datos");
+const buttonFilter = document.getElementById("submitFilter")
+const selectFilter = document.getElementById("selectFilter");
 
-
-button.addEventListener('click', (e) =>{
-    e.preventDefault();
-    getData(select.value);
-});
-
-
-//BUSCAMOS EN EL ARCHIVO MARVEL.PHP
-fetch('http://192.168.33.10/Marvel/Ejercicio%202/marvel.php')
-.then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
-.then(res => res.json())
-.then(res => {
+//BUSCAMOS POR PARAMETROS
+const getFilter = (alignment, gender) => {
+    
+    let miListaFilter = document.getElementById('tableFilter');
+    //PASAMOS LOS PARAMETROS A MARVEL.PHP POR GET
+    fetch(`http://192.168.33.10/Marvel/Ejercicio%202/marvel.php?gender=${gender} && alignment=${alignment}`)
+    .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
+    .then(res => res.json())
+    .then(res => {
         for(superheroe of res){
-            let option = document.createElement('option');
-            //CREAMOS Y APLICAMOS VALOR AL ATRIBUTO VALUE CON EL ID DE CADA SUPERHEROE
-            option.setAttribute('value', superheroe.ID);
-            //AÑADIMOS AL SELECT
-            let nombre = document.createTextNode(superheroe.Name);
-            option.appendChild(nombre);
-            select.appendChild(option); 
-        }    
-});
+            let miTr = document.createElement('tr');
+            let miTd = document.createElement('td');
+            let miTexto = document.createTextNode(superheroe.Name);
+            miTd.appendChild(miTexto);
+            miTr.appendChild(miTd);
+            miListaFilter.appendChild(miTr);
+            miTd = document.createElement('td');
+            miTexto = document.createTextNode(superheroe.Alignment);
+            miTd.appendChild(miTexto);
+            miTr.appendChild(miTd);
+            miListaFilter.appendChild(miTr);
+            miTd = document.createElement('td');
+            miTexto = document.createTextNode(superheroe.Gender);
+            miTd.appendChild(miTexto);
+            miTr.appendChild(miTd);
+            miListaFilter.appendChild(miTr);
+        }  
+                
+    });
+}
 
-//CREAMOS FUNCION PARA RECUPERAR DATOS DE LA BBDD
-const getData = (id) => {
-            //BUSCAMOS POR ID
-            let datos = document.getElementById("datos");
-            fetch(`http://192.168.33.10/Marvel/Ejercicio%202/marvel.php?id=${id}`)
-            .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
-            .then(res => res.json())
-            .then(res => {
-                let miTr = document.createElement('tr');
-                let miTd = document.createElement('td');
-                let miTexto = document.createTextNode(res[0].Name);
-                miTd.appendChild(miTexto);
-                miTr.appendChild(miTd);
-                miTd = document.createElement('td');
-                miTexto = document.createTextNode(res[0].Gender);
-                miTd.appendChild(miTexto);
-                miTr.appendChild(miTd);
-                miTd = document.createElement('td');
-                miTexto = document.createTextNode(res[0].Fighting_Skills);
-                miTd.appendChild(miTexto);
-                miTr.appendChild(miTd);
-                miTr.id=("datos");
-                datos.replaceWith(miTr);
-            });  
-        };
+buttonFilter.addEventListener("click", (e) => {
+    e.preventDefault();
+    let radio = document.getElementById("male").checked;
+    if(radio == false){
+        radio = document.getElementById("female").value;
+    }else{
+        radio = document.getElementById("male").value;
+    }
+    getFilter(selectFilter.value, radio);
+});

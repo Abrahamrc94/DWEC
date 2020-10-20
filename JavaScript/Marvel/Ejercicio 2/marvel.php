@@ -7,6 +7,10 @@
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
                 $sql = "SELECT * FROM characters WHERE id=$id";
+            }else if(isset($_GET['alignment']) && isset($_GET['gender'])){
+                $alignment = $_GET['alignment'];
+                $gender = $_GET['gender'];
+                $sql = "SELECT * FROM characters WHERE gender='$gender' AND alignment='$alignment'";
             }else{
                 $sql = "SELECT * FROM characters";
             }
