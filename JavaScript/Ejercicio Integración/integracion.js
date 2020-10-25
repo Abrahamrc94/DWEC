@@ -25,9 +25,9 @@ buttonGetAll.addEventListener("click", () => {
 });
 //------------------------------------------------------*------------------------------------------------------------------------------
 //Mostrar solo el producto con el nombre dado
-const buttonGetProducto= document.getElementById("GetProducto");
+const buttonGetProduct= document.getElementById("GetProducto");
 
-buttonGetProducto.addEventListener("click", () =>{
+buttonGetProduct.addEventListener("click", () =>{
     //Recogemos los datos y los campos del formulario
     let nombre = document.getElementById('nombre').value;
     let precio = document.getElementById('precio');
@@ -47,27 +47,17 @@ buttonGetProducto.addEventListener("click", () =>{
 //-------------------------------------------------------------------------------------------------------
 
 //Cuando clickamos obtenemos los datos de los imputs y creamos un objeto con los datos del producto
-const buttonSentProducto=document.getElementById("SentProducto");
+const buttonSendProduct=document.getElementById("SentProducto");
 
-buttonSentProducto.addEventListener('click', (e) => {
+buttonSendProduct.addEventListener('click', (e) => {
     e.preventDefault();
 
     let inputnombre = document.getElementById('nombre').value;
     let inputprecio = document.getElementById('precio').value;
     let inputstock = document.getElementById('stock').value;
 
-
-    // let nombre2 = nombre.value;
-    // let precio2 = precio.value;
-    // let stock2 = stock.value;
-
-    // let newProducto = {
-    //     name: nombre2,
-    //     precio: precio2,
-    //     stock: stock2
-    //}
-    //Hacemos la petición POST a nuestro endpoint y le pasamos el objeto producto que hemos creado como JSON en el body
-    fetch('http://localhost:8080/productos', {
+    //Hacemos la petición POST a nuestro endpoint y le pasamos los datos como JSON en el body
+    fetch("http://localhost:8080/api/productos", {
             method: 'POST',
             body: JSON.stringify({
                 nombre:inputnombre,
@@ -78,8 +68,13 @@ buttonSentProducto.addEventListener('click', (e) => {
                 "Content-type": "application/json"
             }
         })
+        .then(res => {
+            if (!res.ok) throw Error(res.status);
+            return res;
+        })
         .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
         .then(res => res.json())
         .then(res => {
+            console.log(res)
         })
 })
