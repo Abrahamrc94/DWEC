@@ -25,7 +25,7 @@ buttonGetAll.addEventListener("click", () => {
 });
 //------------------------------------------------------*------------------------------------------------------------------------------
 //Mostrar solo el producto con el nombre dado
-const buttonGetProduct= document.getElementById("GetProducto");
+const buttonGetProduct= document.getElementById("GetProduct");
 
 buttonGetProduct.addEventListener("click", () =>{
     //Recogemos los datos y los campos del formulario
@@ -47,7 +47,7 @@ buttonGetProduct.addEventListener("click", () =>{
 //-------------------------------------------------------------------------------------------------------
 
 //Cuando clickamos obtenemos los datos de los imputs y creamos un objeto con los datos del producto
-const buttonSendProduct=document.getElementById("SentProducto");
+const buttonSendProduct=document.getElementById("SendProduct");
 
 buttonSendProduct.addEventListener('click', (e) => {
     e.preventDefault();
