@@ -68,13 +68,16 @@ buttonSendProduct.addEventListener('click', (e) => {
                 "Content-type": "application/json"
             }
         })
-        .then(res => {
-            if (!res.ok) throw Error(res.status);
-            return res;
-        })
+        // .then(res => {
+        //     if (!res.ok) throw Error(res.status);
+        //     return res;
+        // })
         .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
         .then(res => res.json())
         .then(res => {
             console.log(res)
+        })
+        .catch(error =>{
+            throw Error(error.status);
         })
 })
