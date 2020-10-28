@@ -81,3 +81,8 @@ buttonSendProduct.addEventListener('click', (e) => {
             throw Error(error.status);
         })
 })
+
+//---------------------------------------------------------------------------------------------------------
+
+//Método para actualizar un producto
+

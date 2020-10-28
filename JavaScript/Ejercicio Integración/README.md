@@ -2,7 +2,7 @@
 
 ## Introducción
 
-El objetivo del proyecto es trabajar sobre un sistema de contenido en streaming, como Netflix.
+El objetivo del proyecto es trabajar sobre un sistema de venta de productos, como por ejemplo un supermercado.
 
 En el apartado de funciones disponibles se indican las distintas posibilidades del proyecto.
 
@@ -34,6 +34,8 @@ Para utilizar la aplicación web, primero debemos descargar los entornos backend
         Desplegamos el botón "local" -> click botón derecho sobre "jacaranda" -> click sobre start
 
 ### Frontend
+
+- La parte de Frontend está realizada en HTML y JavaScript siguiendo el estándar de ECMAScript 6 
 
 - Acceso al apartado web.
 
