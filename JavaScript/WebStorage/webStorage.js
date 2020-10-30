@@ -1,10 +1,12 @@
-const buttonAlta = document.getElementById('alta');
-const buttonBorrarTodo = document.getElementById('borrarTodo');
-const buttonBorrarUsuario = document.getElementById('borrarUsuario');
-const buttonRecuperarPass = document.getElementById('recuperarPass');
+//LOCAL STORAGE
+
+const buttonAltaLocal = document.getElementById('altaLocal');
+const buttonBorrarTodoLocal = document.getElementById('borrarTodoLocal');
+const buttonBorrarUsuarioLocal = document.getElementById('borrarUsuarioLocal');
+const buttonRecuperarPassLocal = document.getElementById('recuperarPassLocal');
 
 //METODO PARA SUBIR OBJETO CON 2 PARAMETROS A LOCALSTORAGE
-const upData = (usuario, pass) => {
+const upDataLocal = (usuario, pass) => {
 
     //CREAMOS OBJETO CON USUARIO Y PASS
     const person = {
@@ -17,42 +19,103 @@ const upData = (usuario, pass) => {
 }
 
 //BORRAR TODO
-const delData = () => {
+const delDataLocal = () => {
     localStorage.clear();
 }
 
 //BORRAR POR USUARIO
-const delUser = (usuario) => {
+const delUserLocal = (usuario) => {
     localStorage.removeItem(usuario);
 }
 
 //BUSCAR PASS
-const passData = (usuario) => {
+const passDataLocal = (usuario) => {
     console.log(localStorage.getItem(usuario));
 }
 
 //EVENTOS
-buttonAlta.addEventListener("click", (e) => {
-    let usuario = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
+buttonAltaLocal.addEventListener("click", (e) => {
+    let usuario = document.getElementById("userLocal").value;
+    let pass = document.getElementById("passLocal").value;
     e.preventDefault();
-    upData(usuario, pass);
+    upDataLocal(usuario, pass);
 });
 
-buttonBorrarTodo.addEventListener("click", (e) => {
+buttonBorrarTodoLocal.addEventListener("click", (e) => {
     e.preventDefault();
-    delData();
+    delDataLocal();
 });
 
-buttonBorrarUsuario.addEventListener("click", (e) => {
-    let usuario = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
+buttonBorrarUsuarioLocal.addEventListener("click", (e) => {
+    let usuario = document.getElementById("userLocal").value;
+    let pass = document.getElementById("passLocal").value;
     e.preventDefault();
-    delUser(usuario, pass);
+    delUserLocal(usuario, pass);
 });
 
-buttonRecuperarPass.addEventListener("click", (e) => {
-    let usuario = document.getElementById("user").value;
+buttonRecuperarPassLocal.addEventListener("click", (e) => {
+    let usuario = document.getElementById("userLocal").value;
     e.preventDefault();
-    passData(usuario);
+    passDataLocal(usuario);
+});
+
+//SESSION STORAGE----------------------------------------------------------------------------------------------------
+
+const buttonAltaSesion = document.getElementById('altaSesion');
+const buttonBorrarTodoSesion = document.getElementById('borrarTodoSesion');
+const buttonBorrarUsuarioSesion = document.getElementById('borrarUsuarioSesion');
+const buttonRecuperarPassSesion = document.getElementById('recuperarPassSesion');
+
+//METODO PARA SUBIR OBJETO CON 2 PARAMETROS A SESIONSTORAGE
+const upDataSesion = (usuario, pass) => {
+
+    //CREAMOS OBJETO CON USUARIO Y PASS
+    const person = {
+        name: usuario,
+        password: pass
+    }
+
+    //AÑADE A SesionSTORAGE EL OBJETO PERSON, Y SU KEY SERA EL NOMBRE USUARIO
+    sessionStorage.setItem(usuario, JSON.stringify(person));
+}
+
+//BORRAR TODO
+const delDataSesion = () => {
+    sessionStorage.clear();
+}
+
+//BORRAR POR USUARIO
+const delUserSesion = (usuario) => {
+    sessionStorage.removeItem(usuario);
+}
+
+//BUSCAR PASS
+const passDataSesion = (usuario) => {
+    console.log(sessionStorage.getItem(usuario));
+}
+
+//EVENTOS
+buttonAltaSesion.addEventListener("click", (e) => {
+    let usuario = document.getElementById("userSesion").value;
+    let pass = document.getElementById("passSesion").value;
+    e.preventDefault();
+    upDataSesion(usuario, pass);
+});
+
+buttonBorrarTodoSesion.addEventListener("click", (e) => {
+    e.preventDefault();
+    delDataSesion();
+});
+
+buttonBorrarUsuarioSesion.addEventListener("click", (e) => {
+    let usuario = document.getElementById("userSesion").value;
+    let pass = document.getElementById("passSesion").value;
+    e.preventDefault();
+    delUserSesion(usuario, pass);
+});
+
+buttonRecuperarPassSesion.addEventListener("click", (e) => {
+    let usuario = document.getElementById("userSesion").value;
+    e.preventDefault();
+    passDataSesion(usuario);
 });
