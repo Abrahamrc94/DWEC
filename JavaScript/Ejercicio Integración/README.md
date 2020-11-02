@@ -70,6 +70,36 @@ Para utilizar la aplicación web, primero debemos descargar los entornos backend
 
         Debemos insertar todos los parámetros mencionados, en caso contrario el sistema los pondrá por defecto a null.
 
-        Una vez se han introducido los datos, pulsamos el botón "Send Producto", ubicado al final del formulario.
+        Una vez se han introducido los datos, pulsamos el botón "Send Product".
+
+        Podemos confirmar que el producto se ha creado correctamente, utilizando el botón "Get Data" explicado anteriormente.
+
+- Actualizar producto
+
+        
+         Se realiza una petición PUT al backend, utilizando los siguientes parámetros:
+
+        - Nombre. Input de tipo texto
+        - Precio. Input de tipo texto.
+        - Stock. Input de tipo texto.
+
+        Debemos insertar todos los parámetros mencionados, en caso contrario el sistema los pondrá por defecto a null.
+
+        Una vez se han introducido los datos, pulsamos el botón "Update Product".
+
+        Podemos confirmar que el producto se ha actualizado correctamente, utilizando el botón "Get Data" explicado anteriormente.
+
+
+- Eliminar producto
+
+         Se realiza una petición Delete al backend, utilizando los siguientes parámetros:
+
+        - Nombre. Input de tipo texto
+        - Precio. Input de tipo texto.
+        - Stock. Input de tipo texto.
+
+        Debemos insertar todos los parámetros mencionados, en caso contrario el sistema los pondrá por defecto a null.
+
+        Una vez se han introducido los datos, pulsamos el botón "Delete Product", ubicado al final del formulario.
 
         Podemos confirmar que el producto se ha creado correctamente, utilizando el botón "Get Data" explicado anteriormente.
