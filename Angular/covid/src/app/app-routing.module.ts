@@ -1,25 +1,20 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { GlobalComponent } from './components/global/global.component';
-import { InformationComponent } from './components/information/information.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+
+import { GeneralComponent } from './components/general/general.component';
+import { SpainComponent } from './components/spain/spain.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: GlobalComponent,
-  },
-  {
-    path: 'global',
-    component: GlobalComponent,
-  },
-  {
-    path: 'countries',
-    component: InformationComponent,
-  }
-];
+  {path:'', redirectTo: '', pathMatch: 'full'},
+  {path: 'paises', component: GeneralComponent},
+  {path: 'spain', component: SpainComponent}
+]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes),
+  CommonModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+
+export class AppRoutingModule { }
